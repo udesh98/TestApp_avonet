@@ -1,20 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
 
 const Main = () => {
 
 	return (
 		<section className={styles.menu}>
-			<Link to="/home">
+			<NavLink to="/home">
 				<button className={styles.menu_item}>
 					Home
 				</button>
-			</Link>
-			<Link to="/projects">
+			</NavLink>
+			<NavLink to="/projects">
 				<button className={styles.menu_item}>
 					Projects
 				</button>
-			</Link>
+			</NavLink>
 			
 			<button className={styles.menu_item}>
 				About

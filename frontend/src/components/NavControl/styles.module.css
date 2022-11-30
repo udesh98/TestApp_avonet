@@ -26,9 +26,11 @@
     transition: ease 0.4s;
 }
 
-.menu_item:hover {
+.menu_item:hover,
+.menu_item:active,
+.menu_item button.active {
     color: black;
 	/* border-bottom: 5px solid black; */
     transform: scale(1.2);
-    transition: ease 0.4s;
+    transition: ease 0.3s;
 }
