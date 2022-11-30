@@ -11,7 +11,7 @@ router.route("/create-project").post((req,res)=>{
     const decoded = jwt_decode(user); //data is what you sent in.
     const userId = decoded._id;
 
-    console.log(userId);
+    // console.log(userId);
 
     const newProject = new Projects({
         title,
