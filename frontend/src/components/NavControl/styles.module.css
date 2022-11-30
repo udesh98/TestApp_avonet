@@ -1,0 +1,34 @@
+.menu {
+    width: 100%;
+    height: 70px;
+    background-color: #3bb19b;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 100px;
+}
+
+.menu_item {
+	border: none;
+	outline: none;
+	padding: 25px 30px;
+	background-color: transparent;
+	color: white;
+	/* border-radius: 20px; */
+	width: 120px;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+	margin: 0;
+	margin-right: 8px;
+    position: relative;
+    float: left;
+    transition: ease 0.4s;
+}
+
+.menu_item:hover {
+    color: black;
+	/* border-bottom: 5px solid black; */
+    transform: scale(1.2);
+    transition: ease 0.4s;
+}
