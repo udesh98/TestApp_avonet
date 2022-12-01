@@ -5,6 +5,7 @@ const projectsSchema = new mongoose.Schema({
 	description: { type: String, required: true },
     userId: { type: String, required: true },
     date: { type: Date, required: true },
+    status: { type: String, required: true }
 });
 
 const Projects = mongoose.model("projects", projectsSchema);
