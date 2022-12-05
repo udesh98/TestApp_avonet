@@ -40,7 +40,8 @@
 }
 
 .white_btn,
-.green_btn {
+.green_btn,
+.view_btn {
 	border: none;
 	outline: none;
 	padding: 12px 0;
@@ -57,13 +58,29 @@
 	background-color: #a1234d;
 	color: white;
 	margin: 10px;
-	margin-top: 30px;
+	/* margin-top: 30px; */
 }
 
 .green_btn:hover {
 	color: black;
 	background-color: transparent;
 	border: 0.5px solid #a1234d;
+	/* border-bottom: 5px solid black; */
+    transform: scale(1.2);
+    transition: ease 0.3s;
+}
+
+.view_btn {
+	background-color: #169ba5;
+	color: white;
+	margin: 10px;
+	margin-top: 40px;
+}
+
+.view_btn:hover {
+	color: black;
+	background-color: transparent;
+	border: 0.5px solid #169ba5;
 	/* border-bottom: 5px solid black; */
     transform: scale(1.2);
     transition: ease 0.3s;

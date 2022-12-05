@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, validate } = require("../models/user");
 const bcrypt = require("bcrypt");
+const jwt_decode = require("jwt-decode");
 
 router.post("/", async (req, res) => {
 	try {
@@ -22,6 +23,18 @@ router.post("/", async (req, res) => {
 	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
+});
+
+router.get("/getAll", async (req, res) => {
+	const user = req.query;
+    const decoded = jwt_decode(user.token); //data is what you sent in.
+    const userId = decoded._id;
+
+    User.find({ _id: { $ne: userId } }).then((x)=>{
+        {res.json(x)};
+    }).catch((err)=>{
+        console.log(err);
+    })
 });
 
 module.exports = router;

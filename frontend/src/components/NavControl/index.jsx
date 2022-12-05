@@ -15,10 +15,11 @@ const Main = () => {
 					Projects
 				</button>
 			</NavLink>
-			
-			<button className={styles.menu_item}>
-				About
-			</button>
+			<NavLink to="/todo">
+				<button className={styles.menu_item}>
+					ToDo
+				</button>
+			</NavLink>
 		</section>
 	);
 };
