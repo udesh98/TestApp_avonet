@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
+import { useDispatch } from "react-redux";
 
 const Todo = (props) => {
     const user = localStorage.getItem("token");
     const [todo, setTodo] = useState({
         result: []
     });
-
     const [error, setError] = useState(false);
     const [errorText, setErrorText] = useState("");
+    const dispatch = useDispatch();
 
     const viewTodo = async () => {
         try {
@@ -17,6 +18,9 @@ const Todo = (props) => {
             await axios.get(url, { params: { token: user } }).then((response) => {
                 const arr = response.data;
                 // console.log(arr);
+                
+                dispatch({ type: 'setTodo', payload: {arr} });
+
                 if (arr.length === 0) {
                     setError(true);
                     setErrorText("You haven't been assigned for any task!");

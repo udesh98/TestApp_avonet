@@ -11,8 +11,9 @@ import { useSelector } from "react-redux";
 
 function App() {
 	const user = localStorage.getItem("token");
-	const projectId = useSelector(state => state.id);
-	const projectTitle = useSelector(state => state.title);
+	const projectId = useSelector(state => state.tasksReducer.id);
+	const projectTitle = useSelector(state => state.tasksReducer.title);
+	const todoDetails = useSelector(state => state.todoReducer.result);
 
 	return (
 		<Fragment>
@@ -20,10 +21,10 @@ function App() {
 			<Routes>
 			{!user && <Route path="/signup" exact element={<Signup />} />}
 			{!user && <Route path="/login" exact element={<Login />} />}
-			{user && <Route path="/home" exact element={<Home />} />}
 			{user && <Route path="/projects" exact element={<Projects />} />}
 			{user && <Route path="/projects/tasks" exact element={<Tasks projectId={projectId} projectTitle={projectTitle}/>} />}
 			{user && <Route path="/todo" exact element={<Todo />} />}
+			{user && <Route path="/home" exact element={<Home todoDetails={todoDetails} />} />}
 			
 			<Route path="/" element={<Navigate replace to="/login" />} />
 			<Route path="/home" element={<Navigate replace to="/login" />} />

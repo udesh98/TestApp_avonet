@@ -1,0 +1,55 @@
+.cards {
+    display: flex;
+    grid-gap: 20px;
+    justify-content: center;
+    align-Items: center;
+    /* grid-template-columns: repeat(3, calc(33.33% - 20px)); */
+    flex-wrap: wrap;
+    /* margin-top: 100px; */
+    margin-bottom: 30px;
+}
+
+.card_items {
+    width: 300px;
+    padding: 20px 20px 40px 20px;
+    margin: 50px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+    overflow-wrap: break-word;
+    font-size: 24px;
+}
+
+.card_items h1 {
+    font-size: 70px;
+    font-weight: normal;
+}
+
+.pie_chart {
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+}
+
+.pie_chart button {
+    padding: 10px 20px;
+    margin: 0px -30px 30px 0px;
+    margin-left: 40px;
+    background-color: rgb(226, 226, 226);
+    border-radius: 5px;
+    border: 0px solid;
+}
+
+.pie_chart button:hover {
+    padding: 10px 20px;
+    margin: 0px -30px 30px 0px;
+    margin-left: 40px;
+    background-color: black;
+    color: white;
+}
+
+.pie_chart h1 {
+    padding: 10px 20px;
+    margin: 0px 30px 30px 0px;
+    font-size: 30px;
+}
