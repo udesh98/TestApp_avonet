@@ -46,11 +46,11 @@ router.route("/").get((req,res)=>{
 
 router.route("/deleteProject/").delete((req,res)=>{
     const id = req.query.id;
-    console.log(id);
+    // console.log(id);
 
     Projects.findByIdAndDelete(id).then((x)=>{
         Tasks.deleteMany({ projectId: { $eq: id } }).then((x) => {
-            console.log(x);
+            // console.log(x);
         }).catch((err) => {
             console.log(err);
         })

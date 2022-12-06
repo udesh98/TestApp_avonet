@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +18,6 @@ const Projects = () => {
         result: []
     });
 
-    // const [error, setError] = useState("");
     const [visible, setVisible] = useState(false);
     const [error, setError] = useState(false);
     const [errorText, setErrorText] = useState("");
@@ -66,24 +66,6 @@ const Projects = () => {
         }
     };
 
-    // const viewProjects1 = () => {
-    //     try {
-    //         const url = "http://localhost:8080/api/projects/";
-    //         // console.log(data.user);
-    //         const { data: res } = axios.get(url);
-    //         // navigate("/home");
-    //         console.log(res);
-    //     } catch (error) {
-    //         if (
-    //             error.response &&
-    //             error.response.status >= 400 &&
-    //             error.response.status <= 500
-    //         ) {
-    //             setError(error.response.data.message);
-    //         }
-    //     }
-    // };
-
     const viewProjects = async () => {
         try {
             const url = "http://localhost:8080/api/projects/";
@@ -107,9 +89,14 @@ const Projects = () => {
         }
     };
     // console.log(data);
+
+    // useEffect(() => {
+    //     viewProjects();
+    // }, []);
+
     useEffect(() => {
         viewProjects();
-    }, []);
+    }, [data.result]);
 
     return (
         <div>

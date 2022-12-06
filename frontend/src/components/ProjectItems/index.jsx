@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { useNavigate, NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -101,4 +102,4 @@ const ProjectItems = (props) => {
     );
 }
 
-export default ProjectItems;
+export default React.memo(ProjectItems);

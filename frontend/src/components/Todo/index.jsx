@@ -51,9 +51,13 @@ const Todo = (props) => {
         }
     };
 
+    // useEffect(() => {
+    //     viewTodo();
+    // }, []);
+
     useEffect(() => {
         viewTodo();
-    }, []);
+    }, [todo]);
 
     return (
         <div>

@@ -5,8 +5,8 @@ import styles from "./styles.module.css";
 const Home = (props) => {
     const [dimension, setDimension] = useState(false);
 
-    const pending = props.todoDetails.filter(item => item.status == "pending");
-    const completed = props.todoDetails.filter(item => item.status == "completed");
+    const pending = props.todoDetails.filter(item => item.status === "pending");
+    const completed = props.todoDetails.filter(item => item.status === "completed");
 
     const data = [
         ["Task", "Hours per Day"],
@@ -33,8 +33,8 @@ const Home = (props) => {
             <center>
                 <br /><br /><hr /><h1>Dashboard</h1><hr /><br /><br />
             </center>
-            {(pending.length || completed.length) === 0 && <h2>You haven't been asigned for any task!</h2>}
-            {(pending.length || completed.length) != 0 && <section>
+            {(pending.length || completed.length) === 0 && <center><h2>You haven't been asigned for any task!</h2></center>}
+            {(pending.length || completed.length) !== 0 && <section>
                 <div>
                     <section className={styles.cards}>
                         <div className={styles.card_items}>

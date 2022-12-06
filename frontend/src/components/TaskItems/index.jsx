@@ -34,9 +34,13 @@ const TaskItems = (props) => {
         }
     };
 
+    // useEffect(() => {
+    //     viewTasks();
+    // }, []);
+
     useEffect(() => {
         viewTasks();
-    }, []);
+    }, [tasks, error]);
 
     return (
         <div>
