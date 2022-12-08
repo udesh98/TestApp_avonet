@@ -3,7 +3,7 @@ const Projects = require("../models/projects");
 const Tasks = require("../models/tasks");
 const jwt_decode = require("jwt-decode");
 
-router.route("/create-project").post((req,res)=>{
+router.route("/create-project").post(async (req,res)=>{
     const title = req.body.title;
     const description = req.body.description;
     const user = req.body.user;
@@ -23,11 +23,19 @@ router.route("/create-project").post((req,res)=>{
         status
     })
 
-    newProject.save().then(()=>{
+    // newProject.save().then(()=>{
+    //     res.json("Project created successfully!");
+    // }).catch((err)=>{
+    //     console.log(err);
+    // })
+
+    try {
+        const response = await newProject.save();
         res.json("Project created successfully!");
-    }).catch((err)=>{
-        console.log(err);
-    })
+    } catch (error) {
+        console.log(error);
+    }
+    
 
 })
 

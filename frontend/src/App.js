@@ -19,23 +19,23 @@ function App() {
 		<Fragment>
 			{user && <Main />}
 			<Routes>
-			{!user && <Route path="/signup" exact element={<Signup />} />}
-			{!user && <Route path="/login" exact element={<Login />} />}
-			{user && <Route path="/projects" exact element={<Projects />} />}
-			{user && <Route path="/projects/tasks" exact element={<Tasks projectId={projectId} projectTitle={projectTitle}/>} />}
-			{user && <Route path="/todo" exact element={<Todo />} />}
-			{user && <Route path="/home" exact element={<Home todoDetails={todoDetails} />} />}
-			
-			<Route path="/" element={<Navigate replace to="/login" />} />
-			<Route path="/home" element={<Navigate replace to="/login" />} />
-			<Route path="/projects" element={<Navigate replace to="/login" />} />
-			<Route path="/projects/tasks" element={<Navigate replace to="/login" />} />
-			<Route path="/todo" element={<Navigate replace to="/login" />} />
-			<Route path="/login" element={<Navigate replace to="/home" />} />
-			<Route path="/signup" element={<Navigate replace to="/home" />} />
-		</Routes>
+				{!user && <Route path="/signup" exact element={<Signup />} />}
+				{!user && <Route path="/login" exact element={<Login />} />}
+				{user && <Route path="/projects" exact element={<Projects />} />}
+				{user && <Route path="/projects/tasks" exact element={<Tasks projectId={projectId} projectTitle={projectTitle} />} />}
+				{user && <Route path="/todo" exact element={<Todo />} />}
+				{user && <Route path="/home" exact element={<Home todoDetails={todoDetails} />} />}
+
+				<Route path="/" element={<Navigate replace to="/login" />} />
+				<Route path="/home" element={<Navigate replace to="/login" />} />
+				<Route path="/projects" element={<Navigate replace to="/login" />} />
+				<Route path="/projects/tasks" element={<Navigate replace to="/login" />} />
+				<Route path="/todo" element={<Navigate replace to="/login" />} />
+				<Route path="/login" element={<Navigate replace to="/home" />} />
+				<Route path="/signup" element={<Navigate replace to="/home" />} />
+			</Routes>
 		</Fragment>
-		
+
 	);
 }
 

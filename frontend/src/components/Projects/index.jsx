@@ -15,12 +15,12 @@ const Projects = () => {
         user: user,
         status: "pending",
         date: date.getTime(),
-        result: []
     });
-
+    const [projects, setProjects] = useState([]);
     const [visible, setVisible] = useState(false);
     const [error, setError] = useState(false);
     const [errorText, setErrorText] = useState("");
+
     const navigate = useNavigate();
 
     const showForm = (e) => {
@@ -53,13 +53,12 @@ const Projects = () => {
                 console.log(res.data);
             });
             setVisible(!visible);
-            setData(prevData => {
-                return {
-                    ...prevData,
+            setData({
                     title: "",
                     description: ""
                 }
-            });
+            );
+            viewProjects();
             navigate("/projects");
         } catch (error) {
             console.log(error.response.statusText);
@@ -76,27 +75,19 @@ const Projects = () => {
                     setError(true);
                     setErrorText("You haven't created any project!");
                 };
-                setData((prevData) => {
-                    return {
-                        ...prevData,
-                        result: arr,
-                    }
-                });
+                setProjects(arr);
             }
             );
         } catch (error) {
             console.log(error.response.statusText);
         }
     };
-    // console.log(data);
-
-    // useEffect(() => {
-    //     viewProjects();
-    // }, []);
+    // console.log("outside render");
 
     useEffect(() => {
         viewProjects();
-    }, [data.result]);
+        // console.log("render projects");
+    }, []);
 
     return (
         <div>
@@ -133,7 +124,7 @@ const Projects = () => {
             </section>}
 
             <section>
-                <ProjectItems details={data.result} />
+                <ProjectItems details={projects} viewProjects={viewProjects}/>
             </section>
         </div>
     );

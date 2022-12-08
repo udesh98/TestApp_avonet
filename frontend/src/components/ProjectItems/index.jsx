@@ -44,7 +44,8 @@ const ProjectItems = (props) => {
                         console.log(response.data);
                     })
                     setTimeout(5000);
-                    navigate("/projects");
+                    props.viewProjects();
+                    // navigate("/projects");
                 } catch (error) {
                     console.log(error.response.statusText);
                 }
@@ -102,4 +103,4 @@ const ProjectItems = (props) => {
     );
 }
 
-export default React.memo(ProjectItems);
+export default ProjectItems;

@@ -5,9 +5,7 @@ import { useDispatch } from "react-redux";
 
 const Todo = (props) => {
     const user = localStorage.getItem("token");
-    const [todo, setTodo] = useState({
-        result: []
-    });
+    const [todo, setTodo] = useState([]);
     const [error, setError] = useState(false);
     const [errorText, setErrorText] = useState("");
     const dispatch = useDispatch();
@@ -25,12 +23,7 @@ const Todo = (props) => {
                     setError(true);
                     setErrorText("You haven't been assigned for any task!");
                 };
-                setTodo((prevTodo) => {
-                    return {
-                        ...prevTodo,
-                        result: arr,
-                    }
-                });
+                setTodo(arr);
             }
             );
         } catch (error) {
@@ -42,8 +35,7 @@ const Todo = (props) => {
         try {
             const url = "http://localhost:8080/api/todo/update-task";
             await axios.put(url, { taskId: taskId, status: status }).then((response) => {
-                const arr = response.data;
-                console.log(arr);
+                viewTodo();
             }
             );
         } catch (error) {
@@ -51,13 +43,10 @@ const Todo = (props) => {
         }
     };
 
-    // useEffect(() => {
-    //     viewTodo();
-    // }, []);
-
     useEffect(() => {
+        // console.log("render todo");
         viewTodo();
-    }, [todo]);
+    }, []);
 
     return (
         <div>
@@ -73,7 +62,7 @@ const Todo = (props) => {
                             <th align="left">Status</th>
                             <th align="right">Mark as complete</th>
                         </tr>
-                        {todo.result.map((item) => {
+                        {todo.map((item) => {
                             return (
                                 <tr key={item._id}>
                                     <td align="left">{item.title}</td>

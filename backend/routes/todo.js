@@ -27,6 +27,7 @@ router.route("/").get((req, res) => {
     findUserbyId(userId);
 })
 
+// update a relevant task
 router.route("/update-task").put((req,res)=>{
     const taskId = req.body.taskId;
     const status = req.body.status;
@@ -38,6 +39,7 @@ router.route("/update-task").put((req,res)=>{
         status: status
     }
 
+    // update the task according to the status
     Tasks.findByIdAndUpdate(taskId, updatedTask).then(()=>{
         res.status(200).send({status: "Task updated!"});
     }).catch((err)=>{

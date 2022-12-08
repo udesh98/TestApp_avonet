@@ -26,11 +26,19 @@
     transition: ease 0.4s;
 }
 
-.menu_item:hover,
-.menu_item:active,
-.menu_item button.active {
+.menu_item:hover {
     color: black;
 	/* border-bottom: 5px solid black; */
     transform: scale(1.2);
     transition: ease 0.3s;
 }
+
+.menu a:active,
+.menu a.active {
+	border-bottom: 5px solid black;
+    
+}
+/* 
+.act {
+    border-bottom: 5px solid black;
+} */

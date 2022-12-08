@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -18,10 +18,25 @@ const Tasks = (props) => {
         date: date.getTime(),
         result: []
     });
-
-    // const [error, setError] = useState("");
+    const [tasks, setTasks] = useState([]);
     const [visible, setVisible] = useState(false);
+
     const navigate = useNavigate();
+
+    const viewTasks = async () => {
+        try {
+            const url = "http://localhost:8080/api/projects/tasks/";
+            await axios.get(url, { params: { projectId: data.projectId } }).then((response) => {
+                const arr = response.data;
+                // console.log(arr.length);
+                // console.log(arr);
+                setTasks(arr);
+            }
+            );
+        } catch (error) {
+            console.log(error.response.statusText);
+        }
+    };
 
     const showForm = (e) => {
         setVisible(!visible);
@@ -64,6 +79,7 @@ const Tasks = (props) => {
                 }
             });
             navigate("/projects/tasks");
+            viewTasks();
         } catch (error) {
             console.log(error.response.statusText);
         }
@@ -79,7 +95,7 @@ const Tasks = (props) => {
                 setData((prevData) => {
                     return {
                         ...prevData,
-                        result: arr,
+                        result: arr
                     }
                 });
             }
@@ -89,7 +105,11 @@ const Tasks = (props) => {
         }
     };
 
-    // console.log(data);
+    // console.log(props);
+
+    useEffect(() => {
+        viewTasks();
+    }, []);
 
     return (
         <div>
@@ -137,7 +157,7 @@ const Tasks = (props) => {
             </section>}
 
             <section>
-                <TaskItems details={data} projectTitle={props.projectTitle}/>
+                <TaskItems details={tasks} projectTitle={props.projectTitle} />
             </section>
         </div>
     );
