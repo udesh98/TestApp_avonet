@@ -10,7 +10,7 @@ const Main = () => {
 	return (
 		<div className={styles.main_container}>
 			<nav className={styles.navbar}>
-				<h1>AVONET</h1>
+				<h1>Proyecto</h1>
 				<NavControl />
 				<button className={styles.white_btn} onClick={handleLogout}>
 					Logout
